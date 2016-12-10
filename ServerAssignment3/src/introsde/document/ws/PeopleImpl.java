@@ -133,4 +133,14 @@ public class PeopleImpl implements People {
 		return Person.updatePerson(p);
 	}
 
+	@Override
+	public Measure updatePersonMeasure(int id, Measure measureToUpdate) {
+		Person p=Person.getPersonById(id);
+		
+		if(p==null)
+			return null;
+		
+		return Measure.updateMeasure(measureToUpdate);
+	}
+
 }

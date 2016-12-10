@@ -59,5 +59,9 @@ public interface People {
     @WebMethod(operationName="savePersonMeasure")
     @WebResult(name="person")
     public Person savePersonMeasure(@WebParam(name="id") int id,@WebParam(name="m") Measure m);
+    
+    @WebMethod(operationName="updatePersonMeasure")
+    @WebResult(name="measure") 
+    public Measure updatePersonMeasure(@WebParam(name="personId") int id, @WebParam(name="measure") Measure measureToUpdate);
 
 }
