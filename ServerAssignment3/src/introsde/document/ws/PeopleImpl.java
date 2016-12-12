@@ -46,7 +46,11 @@ public class PeopleImpl implements People {
 
     @Override
     public int updatePerson(Person person) {
-        Person.updatePerson(person);
+    	Person p2=Person.getPersonById(person.getIdPerson());
+    	p2.setFirstname(person.getFirstname());
+    	p2.setBirthdate(person.getBirthdate());
+    	p2.setLastname(person.getLastname());
+        Person.updatePerson(p2);
         return person.getIdPerson();
     }
 
