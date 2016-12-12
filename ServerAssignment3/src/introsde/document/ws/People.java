@@ -45,7 +45,7 @@ public interface People {
     public int updatePersonHP(@WebParam(name="personId") int id, @WebParam(name="healthProfile") HealthProfile hp);
 
     @WebMethod(operationName="readPersonHistory")//TODO changing measure 
-    @WebResult(name="MeasureHistory")
+    @WebResult(name="healthProfile-history")
     public MeasureHistory readPersonHistory(@WebParam(name="personId") int id, @WebParam(name="measureType") String measureType);
     
     @WebMethod(operationName="readMeasureTypes")

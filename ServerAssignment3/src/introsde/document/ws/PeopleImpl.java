@@ -93,10 +93,14 @@ public class PeopleImpl implements People {
 		if(mt==null)
 			return null;
 		
+		int size=mt.size();
+		
 		for(int i=0;i<mt.size();i++){
 			if(!mt.get(i).getMeasureType().equals(measureType)){
 				mt.remove(i);
+				i--;
 			}
+			
 		}
 		
 		mh.setMeasure(mt);
