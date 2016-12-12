@@ -2,6 +2,7 @@ package tavonatti.stefano.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -223,7 +224,8 @@ public class HealthProfile implements Serializable {
 		}
 		
 		List<Measure> measures=new ArrayList<>(measureList);
-		measures.sort(new ComaparatorMeasureDate());
+		//measures.sort(new ComaparatorMeasureDate());
+		Collections.sort(measures);
 		
 		Iterator<Measure> it=measures.iterator();
 		

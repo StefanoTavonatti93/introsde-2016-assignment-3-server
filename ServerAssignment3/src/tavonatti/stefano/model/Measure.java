@@ -12,7 +12,7 @@ import introsde.document.dao.LifeCoachDao;
 
 @Entity
 @Table(name="measure")
-public class Measure {
+public class Measure implements Comparable<Measure>{
 	
 	@Id // defines this attributed as the one that identifies the entity
     @GeneratedValue(strategy=GenerationType.AUTO) 
@@ -104,6 +104,13 @@ public class Measure {
 
 	public void setMeasureValueType(String measureValueType) {
 		this.measureValueType = measureValueType;
+	}
+
+	@Override
+	public int compareTo(Measure o) {
+		if(o.getDateRegistered().getTime()>getDateRegistered().getTime())
+			return 1;
+		return -1;
 	}
 
 	/*@XmlTransient

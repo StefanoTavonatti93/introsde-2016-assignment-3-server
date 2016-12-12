@@ -27,7 +27,7 @@
 	
 	<dependencies>
         <!-- JAX-WS bundle dependency --> 
-        <dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.2.8"/>
+        <dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.2.10"/>
 	
         <!-- Other dependencies -->
         <dependency org="org.xerial" name="sqlite-jdbc" rev="3.7.2"/>
