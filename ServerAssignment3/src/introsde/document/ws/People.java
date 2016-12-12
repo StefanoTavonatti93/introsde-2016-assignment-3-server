@@ -29,12 +29,12 @@ public interface People {
     public tavonatti.stefano.model.People getPeople();
  
     @WebMethod(operationName="createPerson")
-    @WebResult(name="personId") 
-    public int addPerson(@WebParam(name="person") Person person);
+    @WebResult(name="person") 
+    public Person addPerson(@WebParam(name="person") Person person);
  
     @WebMethod(operationName="updatePerson")
-    @WebResult(name="personId") 
-    public int updatePerson(@WebParam(name="person") Person person);
+    @WebResult(name="person") 
+    public Person updatePerson(@WebParam(name="person") Person person);
     
     @WebMethod(operationName="deletePerson")
     @WebResult(name="personId") 
