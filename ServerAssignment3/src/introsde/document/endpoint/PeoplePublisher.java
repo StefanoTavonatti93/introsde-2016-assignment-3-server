@@ -1,11 +1,12 @@
 package introsde.document.endpoint;
-import introsde.document.ws.PeopleImpl;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
 
 import javax.xml.ws.Endpoint;
+
+import introsde.assignment.soap.PeopleImpl;
 
 public class PeoplePublisher {
     public static void main(String[] args) throws IllegalArgumentException, IOException, URISyntaxException{

@@ -1,4 +1,4 @@
-package introsde.document.ws;
+package introsde.assignment.soap;
 
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import tavonatti.stefano.model.variants.MeasureTypeList;
 
 //Service Implementation
 
-@WebService(endpointInterface = "introsde.document.ws.People",
+@WebService(endpointInterface = "introsde.assignment.soap.People",
     serviceName="PeopleService")
 public class PeopleImpl implements People {
 

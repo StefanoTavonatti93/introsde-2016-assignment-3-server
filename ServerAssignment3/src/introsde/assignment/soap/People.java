@@ -1,4 +1,4 @@
-package introsde.document.ws;
+package introsde.assignment.soap;
 
 
 import java.util.List;
