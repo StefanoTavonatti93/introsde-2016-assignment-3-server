@@ -33,17 +33,10 @@ public class HealthProfile implements Serializable {
 	@XmlTransient
 	private List<Measure> measureList;
 	
+	/*the current health profile is not saved in the database, is generated on-demand using the measure history*/
 	@Transient
 	private CurrentHealth currentHealth;
 	
-	/* this class supports both the static and dynamic healthProfile, they are transient because in the database only the
-	 * measure history will be saved. The health profile is build dynamically based on the measureHystory*/
-
-	/*@Transient
-	private double height;
-	
-	@Transient
-	private double weight;*/
 	
 	@Transient
 	private List<MeasureType> measureType;
@@ -75,67 +68,6 @@ public class HealthProfile implements Serializable {
 		this.measureList = measureList;
 	}
 
-	/*calculate the height of the person based on the last height measure.*/
-	/*public double getHeight() {
-		
-		if(measureList==null){
-			return 0;
-		}
-		if(measureList.size()==0){
-			return 0;
-		}
-		
-		List<Measure> measures=new ArrayList<>(measureList);
-		measures.sort(new ComaparatorMeasureDate());
-		
-		Iterator<Measure> it=measures.iterator();
-		
-		while(it.hasNext()){
-			Measure m=it.next();
-			if(m.getMeasureType().equals(MeasureTypes.height.toString())){
-				height=m.getMeasureValue();
-				break;
-			}
-		}
-		
-		return height;
-	}
-
-	public void setHeight(double height) {
-		this.height = height;
-	}*/
-
-	/*calculate the weight of the person based on the last height measure.*/
-	/*public double getWeight() {
-		
-		if(measureList==null){
-			return 0;
-		}
-		
-		if(measureList.size()==0){
-			return 0;
-		}
-		
-		List<Measure> measures=new ArrayList<>(measureList);
-		measures.sort(new ComaparatorMeasureDate());
-		
-		Iterator<Measure> it=measures.iterator();
-		
-		while(it.hasNext()){
-			Measure m=it.next();
-			if(m.getMeasureType().equals(MeasureTypes.weight.toString())){
-				weight=m.getMeasureValue();
-				break;
-			}
-		}
-		
-		return weight;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}*/
-	
 	public static HealthProfile save(HealthProfile h) {
         EntityManager em = LifeCoachDao.instance.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -146,55 +78,17 @@ public class HealthProfile implements Serializable {
         return h;
     } 
 	
-	/**
-	 * returns the height without checking in the measure list, used to create a new person
-	 * @return
-	 */
-	/*public double rawHeight(){
-		return height;
-	}*/
-	/**
-	 * returns the weight without checking in the measure list, used to create a new person
-	 * @return
-	 */
-	/*public double rawWeight(){
-		return weight;
-	}*/
 
-	/*public List<MeasureType> getMeasureType() {
-		measureType=new ArrayList<MeasureType>();
-		if(getMeasureList()!=null){
-			ArrayList<Measure> measures=new ArrayList<>(getMeasureList());
-			
-			//sort measure by date
-			measures.sort(new ComaparatorMeasureDate());
-			
-			MeasureTypes mt[]=MeasureTypes.values();
-			
-			// get most recent measure per type
-			for(MeasureTypes type:mt){
-				Iterator<Measure> it=measures.iterator();
-				while(it.hasNext()){
-					Measure m=it.next();
-					if(m.getMeasureType().equals(type.toString())){
-						MeasureType measure=new MeasureType();
-						measure.setValue(m.getMeasureValue());
-						measure.setMeasure(m.getMeasureType());
-						
-						measureType.add(measure);
-						break;
-					}
-				}
-			}
-			
-		}
-		return measureType;
-	}*/
 
 	public void setMeasureType(List<MeasureType> measureType) {
 		this.measureType = measureType;
 	}
 
+	/**
+	 * generates and returns the current health of the person.
+	 * it takes the last measures by date and type in order to generate the current health state of the person.
+	 * @return
+	 */
 	public CurrentHealth getCurrentHealth() {
 		
 		List<Measure> measures=new ArrayList<>();
@@ -224,7 +118,6 @@ public class HealthProfile implements Serializable {
 		}
 		
 		List<Measure> measures=new ArrayList<>(measureList);
-		//measures.sort(new ComaparatorMeasureDate());
 		Collections.sort(measures);
 		
 		Iterator<Measure> it=measures.iterator();

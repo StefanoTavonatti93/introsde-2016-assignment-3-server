@@ -34,10 +34,6 @@ public class Measure implements Comparable<Measure>{
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@XmlTransient
 	private HealthProfile  healthProfile;
-	
-	/*@ManyToOne
-	@XmlTransient
-	private Person person;*/
 
 	public int getMid() {
 		return mid;
@@ -112,15 +108,6 @@ public class Measure implements Comparable<Measure>{
 			return 1;
 		return -1;
 	}
-
-	/*@XmlTransient
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}*/
 
 
 }
