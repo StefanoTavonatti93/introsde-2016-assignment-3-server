@@ -1,6 +1,5 @@
-ServerAssignment3/WebContent/WEB-INF/lib/*
-ServerAssignment3/.settings/*
-ServerAssignment3/WebContent/WEB-INF/classes/
-ServerAssignment3/build_ant/
-ServerAssignment3/build_old.xml
-ServerAssignment3/ivy/
+WebContent/WEB-INF/lib/*
+.settings/*
+WebContent/WEB-INF/classes/
+build/
+ivy/
