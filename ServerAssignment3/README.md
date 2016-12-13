@@ -9,3 +9,12 @@ Stefano Tavonatti
 - **tavonatti.stefano.model**: this package contains the classes used by the persistence provider to map the data on the database to Java objects.
 
 ##Compile and run
+In order to compile and run the server type the following commands:
+
+```shell
+ant install
+ant start  
+```
+
+- This server is deployed on heroku and it is available at the following address: [https://assignment-3-tavonatti.herokuapp.com/ws/people?wsdl](https://assignment-3-tavonatti.herokuapp.com/ws/people?wsdl "")
+- I worked in pair with Simone Scalco, this is the link for his's server: [https://scalco-introsde-assignment-3.herokuapp.com/ws/people?wsdl](https://scalco-introsde-assignment-3.herokuapp.com/ws/people?wsdl "")
