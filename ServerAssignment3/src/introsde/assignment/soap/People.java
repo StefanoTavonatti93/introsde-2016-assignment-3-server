@@ -24,9 +24,9 @@ public interface People {
     @WebResult(name="person") 
     public Person readPerson(@WebParam(name="personId") int id);
  
-    @WebMethod(operationName="getPeopleList")
+    @WebMethod(operationName="readPersonList")
     @WebResult(name="people") 
-    public tavonatti.stefano.model.People getPeople();
+    public tavonatti.stefano.model.PeopleList getPeople();
  
     @WebMethod(operationName="createPerson")
     @WebResult(name="person") 
@@ -40,25 +40,21 @@ public interface People {
     @WebResult(name="personId") 
     public int deletePerson(@WebParam(name="personId") int id);
     
-    @WebMethod(operationName="updatePersonHealthProfile")
-    @WebResult(name="hpId") 
-    public int updatePersonHP(@WebParam(name="personId") int id, @WebParam(name="healthProfile") HealthProfile hp);
-
     @WebMethod(operationName="readPersonHistory")//TODO changing measure 
     @WebResult(name="healthProfile-history")
     public MeasureHistory readPersonHistory(@WebParam(name="personId") int id, @WebParam(name="measureType") String measureType);
     
     @WebMethod(operationName="readMeasureTypes")
-    @WebResult(name="MeasureTypes")
+    @WebResult(name="measureTypes")
     public MeasureTypeList readMeasureTypes();
     
     @WebMethod(operationName="readPersonMeasure")
     @WebResult(name="measure")
-    public Measure readPersonMeasure(@WebParam(name="id") int id, @WebParam(name="measureType") String measureType, @WebParam(name="mid") int mid);
+    public Measure readPersonMeasure(@WebParam(name="personId") int id, @WebParam(name="measureType") String measureType, @WebParam(name="mid") int mid);
     
     @WebMethod(operationName="savePersonMeasure")
     @WebResult(name="person")
-    public Person savePersonMeasure(@WebParam(name="id") int id,@WebParam(name="m") Measure m);
+    public Person savePersonMeasure(@WebParam(name="personId") int id,@WebParam(name="measure") Measure m);
     
     @WebMethod(operationName="updatePersonMeasure")
     @WebResult(name="measure") 

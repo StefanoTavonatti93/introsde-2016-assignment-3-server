@@ -32,8 +32,8 @@ public class PeopleImpl implements People {
     }
 
     @Override
-    public tavonatti.stefano.model.People getPeople() {
-    	tavonatti.stefano.model.People p=new tavonatti.stefano.model.People ();
+    public tavonatti.stefano.model.PeopleList getPeople() {
+    	tavonatti.stefano.model.PeopleList p=new tavonatti.stefano.model.PeopleList ();
     	p.setPerson(Person.getAll());
     	return p;
     }
@@ -63,18 +63,6 @@ public class PeopleImpl implements People {
         } else {
             return -1;
         }
-    }
-
-    @Override
-    public int updatePersonHP(int id, HealthProfile hp) {
-    	/*HealthProfile ls = HealthProfile.getLifeStatusById(hp.());
-        if (ls.getPerson().getIdPerson() == id) {
-        	HealthProfile.updateLifeStatus(hp);
-            return hp.getIdMeasure();
-        } else {
-            return -1;
-        }*/
-    	return 0;
     }
 
 	@Override

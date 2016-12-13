@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @XmlRootElement(name="people")
-public class People implements Serializable{
+public class PeopleList implements Serializable{
 	
 	private List<Person> person;
 
